@@ -12,6 +12,13 @@ const hoursOfOperation = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1
 
 let locationInfo = document.getElementById('locations');
 
+let theadElem = document.createElement('thead');
+locationInfo.appendChild(theadElem);
+
+let tbodyElem = document.createElement('tbody');
+locationInfo.appendChild(tbodyElem);
+
+
 function Location(name, cookiesPerCust, maxHourCust, minHourCust, total) {
   this.name = name;
   this.cookiesPerCust = cookiesPerCust;
@@ -37,26 +44,49 @@ Location.prototype.hourlyCookies = function () {
 
 Location.prototype.htmlRender = function () {
 
-  let articleElem = document.createElement('article');
-  locationInfo.appendChild(articleElem);
 
-  let h2Elem = document.createElement('h2');
-  h2Elem.textContent = this.name;
-  locationInfo.appendChild(h2Elem);
+  let trElem = document.createElement('tr');
+  tbodyElem.appendChild(trElem);
 
-  let ulElem = document.createElement('ul');
+  let thElem = document.createElement('th');
+  thElem.textContent = this.name;
+  thElem.scope = 'row';
+  trElem.appendChild(thElem);
 
   for (let i = 0; i < hoursOfOperation.length; i++) {
-    let liElem = document.createElement('li');
-    liElem.textContent = `${hoursOfOperation[i]}: ${this.cookiePerHour[i]} cookies`;
-    ulElem.appendChild(liElem);
+    let tdElem = document.createElement('td');
+    tdElem.textContent = `${this.cookiePerHour[i]}`;
+    thElem.after(tdElem);
   }
-  locationInfo.appendChild(ulElem);
 
-  let liElem = document.createElement('li');
-  liElem.textContent = `Total: ${this.total}`;
-  ulElem.appendChild(liElem);
+  let tdElem = document.createElement('td');
+  tdElem.textContent = `${this.total}`;
+  thElem.after(tdElem);
+
 };
+
+// HEADER FUNCTION
+function createTable() {
+
+  let trElem = document.createElement('tr');
+  theadElem.appendChild(trElem);
+
+  let thElem = document.createElement('th');
+  thElem.scope = 'col';
+  trElem.appendChild(thElem);
+
+  for (let i = 0; i < hoursOfOperation.length; i++) {
+    let thElem = document.createElement('th');
+    thElem.scope = 'col';
+    thElem.textContent = `${hoursOfOperation[i]}`;
+    trElem.appendChild(thElem);
+  }
+
+  let thTotalElem = document.createElement('th');
+  thTotalElem.scope = 'col';
+  thTotalElem.textContent = 'Total';
+  trElem.appendChild(thTotalElem);
+}
 
 let Seattle = new Location('Seattle', 6.3, 65, 23);
 let Tokyo = new Location('Tokyo', 1.2, 24, 3);
@@ -64,6 +94,7 @@ let Dubai = new Location('Dubai', 3.7, 38, 11);
 let Paris = new Location('Paris', 2.3, 38, 20);
 let Lima = new Location('Lima', 4.6, 16, 2);
 
+createTable();
 Seattle.hourlyCookies();
 Tokyo.hourlyCookies();
 Dubai.hourlyCookies();
