@@ -19,14 +19,13 @@ let tbodyElem = document.createElement('tbody');
 locationInfo.appendChild(tbodyElem);
 
 
-function Location(name, cookiesPerCust, maxHourCust, minHourCust, total) {
+function Location(name, cookiesPerCust, maxHourCust, minHourCust) {
   this.name = name;
   this.cookiesPerCust = cookiesPerCust;
   this.maxHourCust = maxHourCust;
   this.minHourCust = minHourCust;
-  this.totalCookies = 0;
   this.cookiePerHour = [];
-  this.total = total;
+  this.total = 0;
 }
 Location.prototype.randCustPerHour = function () {
   return Math.floor(Math.random() * (this.maxHourCust - this.minHourCust) + this.minHourCust);
@@ -36,8 +35,8 @@ Location.prototype.hourlyCookies = function () {
   let cookieCount = 0;
   for (let i = 0; i < hoursOfOperation.length; i++) {
     let aveCookie = Math.floor(this.cookiesPerCust * this.randCustPerHour());
-    this.cookiePerHour.push(aveCookie);
     cookieCount += aveCookie;
+    this.cookiePerHour.push(aveCookie);
   }
   this.total = cookieCount;
 };
@@ -61,7 +60,7 @@ Location.prototype.htmlRender = function () {
 
   let tdElem = document.createElement('td');
   tdElem.textContent = `${this.total}`;
-  thElem.after(tdElem);
+  trElem.appendChild(tdElem);
 
 };
 
