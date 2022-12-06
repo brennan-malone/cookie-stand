@@ -26,11 +26,13 @@ Location.prototype.randCustPerHour = function () {
 };
 
 Location.prototype.hourlyCookies = function () {
+  let cookieCount = 0;
   for (let i = 0; i < hoursOfOperation.length; i++) {
     let aveCookie = Math.floor(this.cookiesPerCust * this.randCustPerHour());
     this.cookiePerHour.push(aveCookie);
-    this.total += aveCookie;
+    cookieCount += aveCookie;
   }
+  this.total = cookieCount;
 };
 
 Location.prototype.htmlRender = function () {
@@ -50,6 +52,10 @@ Location.prototype.htmlRender = function () {
     ulElem.appendChild(liElem);
   }
   locationInfo.appendChild(ulElem);
+
+  let liElem = document.createElement('li');
+  liElem.textContent = `Total: ${this.total}`;
+  ulElem.appendChild(liElem);
 };
 
 let Seattle = new Location('Seattle', 6.3, 65, 23);
