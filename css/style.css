@@ -1,12 +1,52 @@
+
+@font-face {
+  font-family: "Manrope";
+  src: url('../assets/Manrope-VariableFont_wght.ttf');
+}
 body {
   background-color: #212529;
   color: #e9ecef;
+  font-family: 'Manrope';
 }
-article{
-  padding: 10px;
+table {
+  table-layout: auto;
+  width: 50%;
+  background-color: #343a40;
+  padding: 10%;
+  margin: 5%;
+  border-radius: 4px;
 }
-ul {
-  padding: 10px;
-  margin: 10px;
+th {
+  font-weight: bold;
+  border: #fff;
+  border: solid;
+  border-width: 1px;
 }
-
+tr {
+  line-height: 200%;
+  text-align: left;
+}
+td {
+  text-align: left;
+  border: #fff;
+  border: solid;
+  border-width: 1px;
+}
+h1 {
+  text-align: center;
+}
+thead th {
+  border: none;
+}
+a {
+  text-decoration: none;
+}
+a:link {
+  color: #fff;
+}
+a:visited {
+  color: #ced4da;
+}
+a:hover {
+  text-decoration: underline;
+}
