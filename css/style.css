@@ -3,10 +3,45 @@
   font-family: "Manrope";
   src: url('../assets/Manrope-VariableFont_wght.ttf');
 }
+
 body {
   background-color: #212529;
   color: #e9ecef;
   font-family: 'Manrope';
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+body #main-content {
+  justify-content: flex-start;
+  min-height: 80vh;
+}
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #0e0e0e;
+  margin-bottom: 2vh;
+  min-height: 8vh;
+}
+
+footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  background-color: #0e0e0e;
+  margin-top: 2vh;
+  padding: 5px;
+  flex-shrink: 0;
+}
+footer img {
+  height: 100px;
+}
+.content{
+  display: flex;
+  justify-content: center;
 }
 table {
   table-layout: auto;
@@ -21,6 +56,7 @@ th {
   border: #fff;
   border: solid;
   border-width: 1px;
+  padding-left: 5px;
 }
 tr {
   line-height: 200%;
@@ -31,15 +67,22 @@ td {
   border: #fff;
   border: solid;
   border-width: 1px;
+  padding-left: 5px;
 }
 h1 {
   text-align: center;
+  font-size: 1.4em;
+  margin-right: auto;
+  margin-left: 2%;
 }
 thead th {
   border: none;
 }
 a {
   text-decoration: none;
+  margin-right: 2%;
+  margin-left: 2%;
+  font-weight: bold;
 }
 a:link {
   color: #fff;
@@ -48,5 +91,26 @@ a:visited {
   color: #ced4da;
 }
 a:hover {
-  text-decoration: underline;
+  text-shadow: 2px 2px 2px #919191;
+}
+.content-row {
+  width: 50%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  height: auto;
+  justify-content: space-between
+}
+.content-row p {
+  padding: 1%;
+  max-width: 400px;
+}
+.content-row figure {
+  padding: 1%;
+}
+figcaption {
+  color: #919191;
+}
+img {
+  border-radius: 5px;
 }
