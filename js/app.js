@@ -86,6 +86,11 @@ function createHeadTable() {
   trElem.appendChild(thTotalElem);
 }
 
+// RECREATE FOOTER FUNCTON
+// function recreateFootTable() {
+//   let tFoot = document.getElementsByTagName('tfoot');
+// }
+
 // FOOTER FUNCTION
 function createFootTable() {
 
@@ -127,10 +132,9 @@ function handleSubmit(event){
 
   newCity.hourlyCookies();
   newCity.htmlRender();
-  let tFoot = document.getElementsByTagName('tfoot');
-  tFoot.remove();
-  createFootTable();
   myForm.reset();
+  tfootElem.innerHTML = '';
+  createFootTable();
 }
 
 let Seattle = new Location('Seattle', 6.3, 65, 23);
