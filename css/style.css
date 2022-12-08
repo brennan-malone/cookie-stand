@@ -3,19 +3,38 @@
   font-family: "Manrope";
   src: url('../assets/Manrope-VariableFont_wght.ttf');
 }
-
+@font-face {
+  font-family: "Maitree-Light";
+  src: url('../assets/Maitree-Light.ttf');
+}
+@font-face {
+  font-family: "Maitree-Regular";
+  src: url('../assets/Maitree-Regular.ttf');
+}
+@font-face {
+  font-family: "Maitree-Bold";
+  src: url('../assets/Maitree-Bold.ttf');
+}
 body {
   background-color: #212529;
   color: #e9ecef;
-  font-family: 'Manrope';
+  font-family: 'Manrope', sans-serif;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
-body #main-content {
+body .main-content {
   justify-content: flex-start;
-  min-height: 80vh;
+  min-height: 80%;
+  width: 960px;
+  margin: 0px auto;
+}
+#main-content {
+  border-collapse: unset;
+  margin-bottom: auto;
+  margin-right: auto;
+  margin-left: auto;
 }
 nav {
   display: flex;
@@ -32,25 +51,21 @@ footer {
   align-items: center;
   flex-direction: column;
   background-color: #0e0e0e;
-  margin-top: 2vh;
+  margin-top: auto;
   padding: 5px;
   flex-shrink: 0;
 }
 footer img {
   height: 100px;
 }
-.content{
-  display: flex;
-  justify-content: center;
-}
 table {
-  table-layout: auto;
-  width: 50%;
   background-color: #343a40;
-  padding: 10%;
-  margin: 5%;
   border-radius: 4px;
+  padding: 10px;
+  border-collapse: unset;
+  border-spacing: 2px;
 }
+
 th {
   font-weight: bold;
   border: #fff;
@@ -68,6 +83,7 @@ td {
   border: solid;
   border-width: 1px;
   padding-left: 5px;
+  border-collapse: collapse;
 }
 h1 {
   text-align: center;
@@ -94,8 +110,7 @@ a:hover {
   text-shadow: 2px 2px 2px #919191;
 }
 .content-row {
-  width: 50%;
-  margin: 0 auto;
+  margin: 20px auto;
   display: flex;
   flex-direction: row;
   height: auto;
@@ -113,4 +128,10 @@ figcaption {
 }
 img {
   border-radius: 5px;
+}
+p {
+  background-color: #343a40;
+  border-radius: 5px;
+  padding: auto;
+  font-family: 'Maitree-Regular', serif;
 }
