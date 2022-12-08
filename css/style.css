@@ -24,7 +24,7 @@ body {
   flex-direction: column;
   justify-content: space-between;
 }
-body .main-content {
+.main-content {
   justify-content: flex-start;
   min-height: 80%;
   width: 960px;
@@ -110,7 +110,7 @@ a:hover {
   text-shadow: 2px 2px 2px #919191;
 }
 .content-row {
-  margin: 20px auto;
+  gap: 30px;
   display: flex;
   flex-direction: row;
   height: auto;
@@ -118,7 +118,6 @@ a:hover {
 }
 .content-row p {
   padding: 1%;
-  max-width: 400px;
 }
 .content-row figure {
   padding: 1%;
@@ -134,4 +133,15 @@ p {
   border-radius: 5px;
   padding: auto;
   font-family: 'Maitree-Regular', serif;
+  margin: 20px auto;
+  flex-grow: 1;
+  display: flex;
+  justify-content: left;
+  line-height: 1.5em;
+  font-size: larger;
+
+}
+#text-family{
+  justify-content: center;
+
 }
