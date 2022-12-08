@@ -16,6 +16,8 @@ locationInfo.appendChild(tbodyElem);
 let tfootElem = document.createElement('tfoot');
 locationInfo.appendChild(tfootElem);
 
+let myForm = document.getElementById('sales-form');
+
 function Location(name, cookiesPerCust, maxHourCust, minHourCust) {
   this.name = name;
   this.cookiesPerCust = cookiesPerCust;
@@ -99,7 +101,6 @@ function createFootTable() {
     let hourlyTotals = 0;
     for (let j = 0; j < state.locationArray.length; j++){
       hourlyTotals += state.locationArray[j].cookiePerHour[i];
-      console.log(largeTotal);
     }
     largeTotal += hourlyTotals;
     let tdElem = document.createElement('td');
@@ -110,6 +111,25 @@ function createFootTable() {
   let tdElem = document.createElement('td');
   tdElem.textContent = `${largeTotal}`;
   trElem.appendChild(tdElem);
+}
+// DEFINE EVENT HANDLER
+
+function handleSubmit(event){
+  event.preventDefault();
+
+  let name = event.target.cityName.value;
+  let cookiesPerCust = parseInt(event.target.cookiesPer.value);
+  let maxHourCust = parseInt(event.target.maxCust.value);
+  let minHourCust = parseInt(event.target.minCust.value);
+
+  let newCity = new Location (name, cookiesPerCust, maxHourCust, minHourCust);
+  state.locationArray.push(newCity);
+
+  newCity.hourlyCookies();
+  newCity.htmlRender();
+  myForm.reset();
+  tfootElem.innerHTML = '';
+  createFootTable();
 }
 
 let Seattle = new Location('Seattle', 6.3, 65, 23);
@@ -130,3 +150,5 @@ state.locationArray.push(Seattle, Tokyo, Dubai, Paris, Lima);
 renderAll();
 createHeadTable();
 createFootTable();
+
+myForm.addEventListener('submit', handleSubmit);

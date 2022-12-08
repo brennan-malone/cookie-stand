@@ -72,6 +72,7 @@ th {
   border: solid;
   border-width: 1px;
   padding-left: 5px;
+  padding-right: 5px;
 }
 tr {
   line-height: 200%;
@@ -144,4 +145,34 @@ p {
 #text-family{
   justify-content: center;
 
+}
+fieldset {
+  display: flex;
+  flex-wrap: wrap;
+  width: min-content;
+  margin: auto;
+  background-color: #777;
+  padding: 40px;
+  border-radius: 4px;
+}
+fieldset * {
+  margin-bottom: 20px;
+}
+legend {
+  background-color: #0e0e0e;
+  padding: 2%;
+  border-radius: 4px;
+  margin: 5px;
+  font-size: larger;
+}
+label {
+  margin: 3%;
+}
+input {
+  border-radius: 1px;
+}
+input[type="submit"] {
+  background-color: #0e0e0e;
+  color: #fff;
+  border-radius: 10px;
 }
