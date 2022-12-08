@@ -86,11 +86,6 @@ function createHeadTable() {
   trElem.appendChild(thTotalElem);
 }
 
-// RECREATE FOOTER FUNCTON
-// function recreateFootTable() {
-//   let tFoot = document.getElementsByTagName('tfoot');
-// }
-
 // FOOTER FUNCTION
 function createFootTable() {
 
